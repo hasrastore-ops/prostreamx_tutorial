@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Panduan pemasangan aplikasi Prostream dengan kod muat turun dan tutorial video.">
+    <title>Panduan Pemasangan Prostream - Terima Kasih</title>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --dark-bg: #0f172a;
+            --dark-card: #1e293b;
+            --light-bg: #f8fafc;
+            --light-card: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        body.dark-mode {
+            --light-bg: #0f172a;
+            --light-card: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 1000;
+            background: var(--light-card);
+            border-radius: 50px;
+            padding: 8px 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .theme-toggle:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--light-card);
+            border-radius: 15px;
+            padding: 25px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            animation: slideDown 0.6s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .thank-you {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Product Info */
+        .product-info {
+            background: var(--light-card);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary-color);
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .app-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .app-card:active {
+            transform: scale(0.95);
+        }
+
+        .app-card:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        .app-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .app-name {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* Video Section - ENLARGED & MINIMAL BORDER */
+        .video-section {
+            background: var(--light-card);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .video-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Download Codes */
+        .codes-section {
+            background: var(--light-card);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .codes-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .code-card {
+            background: var(--light-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .code-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .code-value {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-family: 'Courier New', monospace;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .copy-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .copy-btn:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        .copy-btn.copied {
+            background: var(--success-color);
+        }
+
+        /* Instructions */
+        .instructions {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-left: 4px solid var(--warning-color);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .instructions h4 {
+            color: #92400e;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+
+        .instructions ul {
+            color: #78350f;
+            margin-left: 20px;
+        }
+
+        .instructions li {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Support */
+        .support-section {
+            background: var(--light-card);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25d366;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .whatsapp-btn:active {
+            transform: scale(0.95);
+        }
+
+        .whatsapp-btn:focus {
+            outline: 2px solid #25d366;
+            outline-offset: 2px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 15px;
+            color: white;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--success-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .theme-toggle, .video-section, .whatsapp-btn {
+                display: none;
+            }
+            
+            .code-value {
+                break-inside: avoid;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 5px;
+            }
+            
+            .thank-you {
+                font-size: 1.5rem;
+            }
+            
+            .apps-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .app-card {
+                padding: 12px;
+            }
+            
+            .video-section {
+                padding: 10px;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .video-container {
+                border-radius: 6px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .thank-you {
+                font-size: 1.3rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .apps-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .app-icon {
+                font-size: 1.5rem;
+            }
+            
+            .app-name {
+                font-size: 0.9rem;
+            }
+
+            .video-section {
+                padding: 8px;
+            }
+
+            .video-container {
+                border-radius: 4px;
+            }
+        }
+
+        /* Landscape mode optimizations */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .header {
+                padding: 15px 10px;
+            }
+            
+            .thank-you {
+                font-size: 1.2rem;
+                margin-bottom: 5px;
+            }
+            
+            .subtitle {
+                font-size: 0.8rem;
+            }
+            
+            .section-title {
+                font-size: 1rem;
+            }
+            
+            .video-section {
+                margin-bottom: 10px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="themeIcon" aria-hidden="true"></i>
+        <span style="font-size: 0.8rem;">Tema</span>
+    </div>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1 class="thank-you">
+                <i class="fas fa-heart" aria-hidden="true"></i> Terima Kasih!
+            </h1>
+            <p class="subtitle">Selamat datang ke keluarga Prostream</p>
+        </header>
+
+        <!-- Product Info Section -->
+        <section class="product-info">
+            <h2 class="section-title">
+                <i class="fas fa-box" aria-hidden="true"></i> Aplikasi Anda
+            </h2>
+            <p style="color: var(--text-secondary); margin-bottom: 15px; font-size: 0.9rem;">
+                1 Applikasi Semua Boleh Layan!
+            </p>
+            <div class="apps-grid">
+                <div class="app-card" tabindex="0" role="button" aria-label="Movie+Drama">
+                    <div class="app-icon">
+                        <i class="fas fa-play" aria-hidden="true"></i>
+                    </div>
+                    <div class="app-name">MOVIE+DRAMA</div>
+                </div>
+                <div class="app-card" tabindex="0" role="button" aria-label="Movie Lagi">
+                    <div class="app-icon">
+                        <i class="fas fa-film" aria-hidden="true"></i>
+                    </div>
+                    <div class="app-name">MOVIE LAGI</div>
+                </div>
+                <div class="app-card" tabindex="0" role="button" aria-label="Anime">
+                    <div class="app-icon">
+                        <i class="fas fa-satellite" aria-hidden="true"></i>
+                    </div>
+                    <div class="app-name">ANIME</div>
+                </div>
+                <div class="app-card" tabindex="0" role="button" aria-label="Live TV+Astro">
+                    <div class="app-icon">
+                        <i class="fas fa-tv" aria-hidden="true"></i>
+                    </div>
+                    <div class="app-name">LIVE TV+ASTRO (FREE)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Tutorial Section - NO BUTTONS -->
+        <section class="video-section">
+            <h2 class="section-title">
+                <i class="fas fa-video" aria-hidden="true"></i> Tutorial Pemasangan
+            </h2>
+            <p style="color: var(--text-secondary); margin-bottom: 15px; font-size: 0.9rem;">
+                Ikuti video ini untuk pasang aplikasi. Gunakan fullscreen icon di video untuk tonton skrin penuh.
+            </p>
+            <div class="video-container">
+                <div class="video-loading" id="videoLoading">
+                    <i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Loading video...
+                </div>
+                <iframe 
+                    src="https://www.youtube.com/embed/50Sl9sOuUMk" 
+                    loading="lazy"
+                    onload="document.getElementById('videoLoading').style.display='none'"
+                    title="Tutorial Pemasangan Prostream"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Download Codes Section -->
+        <section class="codes-section">
+            <h2 class="section-title">
+                <i class="fas fa-download" aria-hidden="true"></i> Kod Muat Turun
+            </h2>
+            <p style="color: var(--text-secondary); margin-bottom: 15px; font-size: 0.9rem;">
+                Gunakan kod ini di Apps downloader TV:
+            </p>
+            <div class="codes-grid">
+                <div class="code-card">
+                    <div class="code-label">PROSTREAMX</div>
+                    <div class="code-value">
+                        <span id="downloadCode">3139817</span>
+                        <button class="copy-btn" onclick="copyCode('downloadCode', this)" aria-label="Copy download code">
+                            <i class="fas fa-copy" aria-hidden="true"></i> Salin
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h4>
+                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i> 
+                    Panduan Penting
+                </h4>
+                <ul>
+                    <li>Masukkan kod yang betul di Apps downloader TV</li>
+                    <li>Semak internet sebelum mula</li>
+                    <li>WhatsApp kami jika ada masalah</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="codes-section">
+            <h2 class="section-title">
+                <i class="fa-solid fa-key fa-bounce" aria-hidden="true"></i> CODE LOGIN<i class="fa-solid fa-key fa-bounce" aria-hidden="true"></i>
+            </h2>
+            <p style="color: var(--text-secondary); margin-bottom: 15px; font-size: 0.9rem;">
+                Ini adalah login code, Masukkan Nama dan Code untuk kali Pertama Login
+            </p>
+            <div class="codes-grid">
+                <div class="code-card">
+                    <div class="code-label">LOGIN CODE:</div>
+                    <div class="code-value">
+                        <span id="loginCode">2246</span>
+                        <button class="copy-btn" onclick="copyCode('loginCode', this)" aria-label="Copy login code">
+                            <i class="fas fa-copy" aria-hidden="true"></i> Salin
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h4>
+                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i> 
+                    Panduan Penting
+                </h4>
+                <ul>
+                    <li>Untuk Login, masukkan nama pendek + login code diatas</li>
+                    <li>Jangan lebih dari 2 device, Acc akan di block</li>
+                    <li>WhatsApp kami jika ada masalah</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Support Section -->
+        <section class="support-section">
+            <h2 class="section-title" style="justify-content: center;">
+                <i class="fas fa-headset" aria-hidden="true"></i> Bantuan?
+            </h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                Ada masalah? Hubungi kami segera
+            </p>
+            <a href="http://wasap.my/601127412402" target="_blank" class="whatsapp-btn" aria-label="Contact us on WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                WhatsApp
+            </a>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Prostream</p>
+            <p>Dibuat dengan <i class="fas fa-heart" style="color: #ff6b6b;" aria-hidden="true"></i></p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="alert" aria-live="polite">
+        <i class="fas fa-check-circle" aria-hidden="true"></i> Kod disalin!
+    </div>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "Cara Memasang Aplikasi Prostream",
+      "description": "Panduan langkah demi langkah untuk memasang aplikasi Prostream",
+      "image": "https://example.com/prostream-image.jpg",
+      "video": {
+        "@type": "VideoObject",
+        "name": "Tutorial Pemasangan Prostream",
+        "description": "Video tutorial menunjukkan cara memasang aplikasi Prostream",
+        "thumbnailUrl": "https://img.youtube.com/vi/50Sl9sOuUMk/maxresdefault.jpg",
+        "embedUrl": "https://www.youtube.com/embed/50Sl9sOuUMk"
+      }
+    }
+    </script>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('themeIcon');
+            
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Load saved theme
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.getElementById('themeIcon');
+            
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        });
+
+        // Copy Code Function with error handling
+        function copyCode(codeId, button) {
+            const codeElement = document.getElementById(codeId);
+            const codeText = codeElement.textContent;
+            
+            if (!navigator.clipboard) {
+                // Fallback for older browsers
+                const textArea = document.createElement("textarea");
+                textArea.value = codeText;
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                
+                try {
+                    document.execCommand('copy');
+                    updateButtonState(button);
+                    showToast();
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                    alert('Failed to copy code. Please copy manually.');
+                }
+                
+                document.body.removeChild(textArea);
+                return;
+            }
+            
+            navigator.clipboard.writeText(codeText).then(() => {
+                updateButtonState(button);
+                showToast();
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                alert('Failed to copy code. Please copy manually.');
+            });
+        }
+
+        // Update button state after copy
+        function updateButtonState(button) {
+            button.classList.add('copied');
+            button.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> Disalin';
+            
+            setTimeout(() => {
+                button.classList.remove('copied');
+                button.innerHTML = '<i class="fas fa-copy" aria-hidden="true"></i> Salin';
+            }, 2000);
+        }
+
+        // Show Toast Notification
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Add touch feedback for mobile
+        document.querySelectorAll('button, .app-card, .code-card').forEach(element => {
+            element.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.95)';
+            });
+            
+            element.addEventListener('touchend', function() {
+                this.style.transform = '';
+            });
+        });
+
+        // Prevent zoom on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (e) => {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Check if mobile and optimize
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // Mobile optimizations
+        if (isMobile()) {
+            // Add mobile-specific optimizations
+            document.querySelector('.video-container').style.cursor = 'pointer';
+        }
+
+        // Keyboard navigation for app cards
+        document.querySelectorAll('.app-card').forEach(card => {
+            card.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    // Add your action here if needed
+                }
+            });
+        });
+    </script>
+</body>
+</html>
