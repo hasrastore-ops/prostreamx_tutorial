@@ -335,6 +335,87 @@
             font-size: 0.9rem;
         }
 
+        /* WhatsApp Channel Section */
+        .whatsapp-channel-section {
+            background: var(--light-card);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeIn 0.8s ease;
+        }
+
+        .channel-highlight {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #25d366;
+        }
+
+        .channel-icon {
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .channel-icon i {
+            font-size: 1.8rem;
+        }
+
+        .channel-info h3 {
+            color: #075E54;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .channel-info p {
+            color: #1b5e20;
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .channel-join-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #25d366, #128C7E);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .channel-join-btn:active {
+            transform: scale(0.95);
+        }
+
+        .channel-join-btn:focus {
+            outline: 2px solid #25d366;
+            outline-offset: 2px;
+        }
+
+        .channel-join-btn:hover {
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            transform: translateY(-2px);
+        }
+
         /* Support */
         .support-section {
             background: var(--light-card);
@@ -445,6 +526,36 @@
             .video-container {
                 border-radius: 6px;
             }
+            
+            .channel-highlight {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+            
+            .channel-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .channel-icon i {
+                font-size: 1.5rem;
+            }
+            
+            .channel-info h3 {
+                font-size: 1.2rem;
+            }
+            
+            .channel-info p {
+                font-size: 0.9rem;
+            }
+            
+            .channel-join-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -474,6 +585,32 @@
 
             .video-container {
                 border-radius: 4px;
+            }
+            
+            .channel-highlight {
+                padding: 12px;
+            }
+            
+            .channel-icon {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .channel-icon i {
+                font-size: 1.3rem;
+            }
+            
+            .channel-info h3 {
+                font-size: 1.1rem;
+            }
+            
+            .channel-info p {
+                font-size: 0.85rem;
+            }
+            
+            .channel-join-btn {
+                padding: 10px 20px;
+                font-size: 0.95rem;
             }
         }
 
@@ -640,6 +777,33 @@
                     <li>Jangan lebih dari 2 device, Acc akan di block</li>
                     <li>WhatsApp kami jika ada masalah</li>
                 </ul>
+            </div>
+        </section>
+
+        <!-- WhatsApp Channel Section -->
+        <section class="whatsapp-channel-section">
+            <h2 class="section-title">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Saluran WhatsApp Rasmi
+            </h2>
+            <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">
+                Dapatkan kemas kini terkini dan maklumat penting mengenai aplikasi Prostream
+            </p>
+            
+            <div class="channel-highlight">
+                <div class="channel-icon">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                </div>
+                <div class="channel-info">
+                    <h3>PROSTREAM OFFICIAL</h3>
+                    <p>PASTIKAN JOIN CHANNEL WHATSAPP TERSEBUT UNTUK DAPATKAN INFO/APP UPDATE.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="https://whatsapp.com/channel/0029VbBSIZyIXnlwmAkPK51t" target="_blank" class="channel-join-btn" aria-label="Join PROSTREAM OFFICIAL WhatsApp Channel">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    Join Channel Sekarang
+                </a>
             </div>
         </section>
 
@@ -832,4 +996,3 @@
 </body>
 
 </html>
-
